@@ -14,7 +14,7 @@ for ( let i = 2; i < process.argv.length; i++ ) {
 };
 
 let drawLine = function(n) {
-    return '\u2501'.repeat(n) + '\n';
+    return '\u2501'.repeat(n);
 };
 let drawTopBorder = function(n) {
     return  '\u250F' + drawLine(n) + '\u2513' +'\n';
@@ -28,6 +28,8 @@ let drawBottomBorder = function(n) {
 let drawBarsAround = function(str) {
     return '\u2503' + str + '\u2503' + '\n';
 }
+// console.log('\u2513')
+// console.log(drawTopBorder(2));
 let boxIt = function(arr) {
     let longest = 0;
     let lines = '';
