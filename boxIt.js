@@ -12,7 +12,6 @@ let array = [];
 for ( let i = 2; i < process.argv.length; i++ ) {
     array.push(process.argv[i])
 };
-
 let drawLine = function(n) {
     return '\u2501'.repeat(n);
 };
@@ -28,8 +27,6 @@ let drawBottomBorder = function(n) {
 let drawBarsAround = function(str) {
     return '\u2503' + str + '\u2503' + '\n';
 }
-// console.log('\u2513')
-// console.log(drawTopBorder(2));
 let boxIt = function(arr) {
     let longest = 0;
     let lines = '';
@@ -40,9 +37,9 @@ let boxIt = function(arr) {
     }
     for (i = 0; i < arr.length; i++) {
         if (i === 0) {
-            lines = lines + drawBarsAround(arr[i])
+            lines = lines + drawBarsAround(arr[i] + (' '.repeat(longest - arr[i].length)))
         } else {
-            lines = lines + drawMiddleBorder(longest) + drawBarsAround(arr[i])
+            lines = lines + drawMiddleBorder(longest) + drawBarsAround(arr[i] + (' '.repeat(longest - arr[i].length)))
         }
     }
     return drawTopBorder(longest) + lines + drawBottomBorder(longest)
