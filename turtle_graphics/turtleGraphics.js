@@ -2,15 +2,15 @@
 
 class Turtle {// x and y refers to current location and xDirection and yDirection refers to vector 
     constructor(x, y) {
-    this.w = '\uD83C\uDF31'
-    this.b = '\uD83C\uDF37'
-    this.s = '\u26D4'
-    this.x = x;
-    this.y = y;
-    this.xDirection = 1;
-    this.yDirection = 0;
-    this.array = [[x, y]];
-    this.stuckedArray =[];//stucked location before entering out of range 
+    this.w = '\uD83C\uDF31'//Ground
+    this.b = '\uD83C\uDF37'//path
+    this.s = '\u26D4'//stopsign
+    this.x = x;//current location of exis of x
+    this.y = y;//current location of exis of y
+    this.xDirection = 1;//x element of vector
+    this.yDirection = 0;//y element of vector
+    this.array = [[x, y]];//Location history
+    this.stuckedArray =[];//Stucked location before entering out of range 
     }
     forward(n) {// Forward upon where it heads, x direction or y direction
         if (this.xDirection != 0) {
@@ -18,34 +18,34 @@ class Turtle {// x and y refers to current location and xDirection and yDirectio
             this.x += this.xDirection 
             if (this.x < 0) {
                 this.x = 0;
-                this.stuckedArray.push([this.x, this.y]);
+                this.stuckedArray.push([this.x, this.y]);//Store stucked location before entering out of range 
             }
-            this.array.push([this.x, this.y]);// this is for footstamp
+            this.array.push([this.x, this.y]);// this is for location history
             }
         } else {
             for ( let i = 0; i < n; i ++) {
                 this.y -= this.yDirection // y direction is toward downside
                 if (this.y < 0) {
                     this.y = 0;
-                    this.stuckedArray.push([this.x, this.y]);//push stucked location to stuckedArray
+                    this.stuckedArray.push([this.x, this.y]);//Store stucked location before entering out of range
                 }
-                this.array.push([this.x, this.y]);
+                this.array.push([this.x, this.y]);// this is for location history
                 }
         }
         return this;
     }//The concept is from rotation vector : https://limnu.com/sketch-easy-90-degree-rotate-vectors/
     right() {
-        [ this.xDirection, this.yDirection ] = [ this.yDirection, -this.xDirection ];
+        [ this.xDirection, this.yDirection ] = [ this.yDirection, -this.xDirection ];//Rotates 90 degree in negative angle
         return this;
     }
     left() {
-        [this.xDirection, this.yDirection ] = [ -this.yDirection, this.xDirection] 
+        [this.xDirection, this.yDirection ] = [ -this.yDirection, this.xDirection]; //Rotates 90 degree in positive angle
         return this;
     }
-    allPoints() {// Return footstamp
+    allPoints() {// Return location history
         return this.array;
     }
-    print() {//First make background and change value of the path
+    print() {//First create background
         let xs = [];
         let ys = [];
         let background = [];// To find out width and height of background
@@ -63,7 +63,7 @@ class Turtle {// x and y refers to current location and xDirection and yDirectio
         background.push(tempArr);
         }
 
-        this.array.forEach ( element => {// Change value of the path of background
+        this.array.forEach ( element => {// Change value of the path on background
             background[element[1]][element[0]] = this.b;
             this.stuckedArray.forEach ( stucked => {//As array is reference type, array's elements need to be compared by itself
                 if (stucked[0] == element[0] && stucked[1] == element[1]) 
@@ -71,22 +71,21 @@ class Turtle {// x and y refers to current location and xDirection and yDirectio
                 
             })             
         })
-        background[this.array[this.array.length - 1][1]][this.array[this.array.length - 1][0]] = '\uD83C\uDF1E';//Final location
+        background[this.array[this.array.length - 1][1]][this.array[this.array.length - 1][0]] = '\uD83C\uDF1E';//Final location needs to be specified
         for (let i = 0; i< background.length; i++) {
-            background[i] = background[i].join(' ');
+            background[i] = background[i].join(' ');//Two-dimensional array to single array
         }
-        console.log(background.join('\n'))
+        console.log(background.join('\n'))//Log string as joined array
     }
 } 
 
 
 new Turtle(0, 16)// Drawing Codecore's C
-    .forward(0)
     .left()
-    
-    .forward(116)// it attemps to goes out of range hundred of times
+    .forward(116)// It attemps to goes out of range hundred of times
+
     .right()
-    .right()
+    .right()//Rotate 180-degree
     .forward(4)
     .left()
 
