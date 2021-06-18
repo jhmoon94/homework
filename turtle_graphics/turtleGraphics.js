@@ -2,7 +2,7 @@ const w = '\u26AA'
 const b = '\u26AB'
 
 
-class Turtle {//x and y refers to current location and xDirection and yDirection refers to vector 
+class Turtle {// x and y refers to current location and xDirection and yDirection refers to vector 
     constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -10,7 +10,7 @@ class Turtle {//x and y refers to current location and xDirection and yDirection
     this.yDirection = 0;
     this.array = [[x, y]];
     }
-    forward(n) {//forward upon where it heads, x direction or y direction
+    forward(n) {// Forward upon where it heads, x direction or y direction
         if (this.xDirection != 0) {
             for ( let i = 0; i < n; i ++) {// x direction is toward rightside
             this.x += this.xDirection 
@@ -32,14 +32,13 @@ class Turtle {//x and y refers to current location and xDirection and yDirection
         [this.xDirection, this.yDirection ] = [ -this.yDirection, this.xDirection] 
         return this;
     }
-    allPoints() {// return footstamp
+    allPoints() {// Return footstamp
         return this.array;
     }
-    print() {//first make background and change value of the path
-        console.log(this.array)
+    print() {//First make background and change value of the path
         let xs = [];
         let ys = [];
-        let background = [];// to find out width and height of background
+        let background = [];// To find out width and height of background
         this.array.forEach ( value => {
             xs.push(value[0])
             ys.push(value[1])
@@ -53,7 +52,7 @@ class Turtle {//x and y refers to current location and xDirection and yDirection
             }
         background.push(tempArr);
         }
-        this.array.forEach ( element => {// change value of the path of background
+        this.array.forEach ( element => {// Change value of the path of background
             background[element[1]][element[0]] = b;
         })
         for (let i = 0; i< background.length; i++) {
@@ -64,7 +63,7 @@ class Turtle {//x and y refers to current location and xDirection and yDirection
 } 
 
 
-new Turtle(0, 16)
+new Turtle(0, 16)// Drawing Codecore's C
     .forward(0)
     .left()
     
