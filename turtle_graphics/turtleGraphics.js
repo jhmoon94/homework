@@ -1,5 +1,3 @@
-
-
 class Turtle {// x and y refers to current location and xDirection and yDirection refers to vector 
     constructor(x, y) {
     this.w = '\uD83C\uDF31'//Ground
@@ -7,10 +5,14 @@ class Turtle {// x and y refers to current location and xDirection and yDirectio
     this.s = '\u26D4'//stopsign
     this.x = x;//current location of exis of x
     this.y = y;//current location of exis of y
+    if(x < 0 || y < 0 || typeof x != 'number' || typeof y != 'number') {//prevent error of invalid inputs
+        this.x = 0;
+        this.y = 0;
+    } 
+    this.array = [[this.x, this.y]];//Location history
+    this.stuckedArray =[];//Stucked location before entering out of range 
     this.xDirection = 1;//x element of vector
     this.yDirection = 0;//y element of vector
-    this.array = [[x, y]];//Location history
-    this.stuckedArray =[];//Stucked location before entering out of range 
     }
     forward(n) {// Forward upon where it heads, x direction or y direction
         if (this.xDirection != 0) {
@@ -79,7 +81,10 @@ class Turtle {// x and y refers to current location and xDirection and yDirectio
     }
 } 
 
-
+// new Turtle(-10, -116)// Drawing Codecore's C
+//     .right()
+//     .forward(16)// It attemps to goes out of range hundred of times
+//     .print();
 new Turtle(0, 16)// Drawing Codecore's C
     .left()
     .forward(116)// It attemps to goes out of range hundred of times
