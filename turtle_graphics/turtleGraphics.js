@@ -65,15 +65,15 @@ class Turtle {// x and y refers to current location and xDirection and yDirectio
 
         this.array.forEach ( element => {// Change value of the path of background
             background[element[1]][element[0]] = this.b;
-            this.stuckedArray.forEach ( stucked => {//because array is reference type, array's elements need to be compared by itself
+            this.stuckedArray.forEach ( stucked => {//As array is reference type, array's elements need to be compared by itself
                 if (stucked[0] == element[0] && stucked[1] == element[1]) 
                     background[element[1]][element[0]] = this.s;
                 
-            }) 
-           
+            })             
         })
+        background[this.array[this.array.length - 1][1]][this.array[this.array.length - 1][0]] = '\uD83C\uDF1E';//Final location
         for (let i = 0; i< background.length; i++) {
-               background[i] = background[i].join(' ');
+            background[i] = background[i].join(' ');
         }
         console.log(background.join('\n'))
     }
