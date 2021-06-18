@@ -2,8 +2,8 @@
 
 class Turtle {// x and y refers to current location and xDirection and yDirection refers to vector 
     constructor(x, y) {
-    this.w = '\u26AA'
-    this.b = '\u26AB'
+    this.w = '\uD83C\uDF31'
+    this.b = '\uD83C\uDF37'
     this.s = '\u26D4'
     this.x = x;
     this.y = y;
@@ -90,7 +90,7 @@ new Turtle(0, 16)// Drawing Codecore's C
     .forward(4)
     .left()
 
-    .forward(15)
+    .forward(12)
     .right()
 
     .forward(7)
@@ -102,13 +102,13 @@ new Turtle(0, 16)// Drawing Codecore's C
     .forward(4)
     .left()
 
-    .forward(9)
+    .forward(6)
     .left()
     
-    .forward(20)
+    .forward(12)
     .left()
     
-    .forward(9)
+    .forward(6)
     .left()
 
     .forward(4)
@@ -120,8 +120,8 @@ new Turtle(0, 16)// Drawing Codecore's C
     .forward(7)
     .right()
 
-    .forward(15)
+    .forward(12)
     .right()
 
-    .forward(13)
+    .forward(5)
     .print()
