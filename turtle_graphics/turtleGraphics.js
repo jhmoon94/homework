@@ -33,7 +33,7 @@ class Turtle {// x and y refers to current location and xDirection and yDirectio
                 }
         }
         return this;
-    }//The concept is same as rotation matrix
+    }//The concept is from rotation vector : https://limnu.com/sketch-easy-90-degree-rotate-vectors/
     right() {
         [ this.xDirection, this.yDirection ] = [ this.yDirection, -this.xDirection ];
         return this;
