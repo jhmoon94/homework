@@ -5,10 +5,13 @@ class Turtle {// x and y refers to current location and xDirection and yDirectio
     this.s = '\u26D4'//stopsign
     this.x = x;//current location of exis of x
     this.y = y;//current location of exis of y
-    if(x < 0 || y < 0 || typeof x != 'number' || typeof y != 'number') {//prevent error of invalid inputs
-        this.x = 0;
-        this.y = 0;
-    } 
+    if((x > 0 && y > 0) && x , y != Infinity ) {//prevent error of invalid inputs
+        this.x = x;
+        this.y = y;
+    } else {
+        throw new Error('Invalid input: Please enter positive integer');
+    }
+
     this.array = [[this.x, this.y]];//Location history
     this.stuckedArray =[];//Stucked location before entering out of range 
     this.xDirection = 1;//x element of vector
