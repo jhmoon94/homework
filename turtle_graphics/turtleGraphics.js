@@ -84,10 +84,6 @@ class Turtle {// x and y refers to current location and xDirection and yDirectio
     }
 } 
 
-// new Turtle(-10, -116)// Drawing Codecore's C
-//     .right()
-//     .forward(16)// It attemps to goes out of range hundred of times
-//     .print();
 new Turtle(0, 16)// Drawing Codecore's C
     .left()
     .forward(116)// It attemps to goes out of range hundred of times
