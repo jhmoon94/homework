@@ -100,13 +100,13 @@ new Turtle(0, 16)// Drawing Codecore's C
     .forward(12)
     .right()
 
-    .forward(7)
+    .forward(8)
     .right()
 
     .forward(3)
     .right()
 
-    .forward(4)
+    .forward(5)
     .left()
 
     .forward(6)
@@ -118,13 +118,13 @@ new Turtle(0, 16)// Drawing Codecore's C
     .forward(6)
     .left()
 
-    .forward(4)
+    .forward(5)
     .right()
 
     .forward(3)
     .right()
 
-    .forward(7)
+    .forward(8)
     .right()
 
     .forward(12)
