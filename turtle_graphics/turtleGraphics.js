@@ -125,4 +125,4 @@ new Turtle(0, 4)// Drawing Codecore's C
     .right()
 
     .forward(5)
-    .print()
+    .print();
